@@ -7,6 +7,6 @@ const admin = {
 
 module.exports = {
     async seed(knex) {
-        await knex('user').insert([admin]);
+        await knex('professor').insert([admin]);
     }
 }
