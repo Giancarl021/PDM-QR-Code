@@ -4,13 +4,14 @@ const cors = require('cors');
 const app = express();
 const routes = require('./routes');
 
+const WebHandler = require('./services/WebHandler');
+
 app.use(cors());
 app.use(express.json());
+
+app.use('/assets', WebHandler);
+
 app.use(routes);
-
-app.use('/assets', express.static(__dirname + '../web/assets'));
-
-// app.all('*', (_, res) => res.redirect('/'));
 
 app.use(function (error, _, response, next) {
     if (error) {
