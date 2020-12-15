@@ -9,18 +9,18 @@ const Validate = require('./controllers/Validate');
 const Auth = require('./middlewares/Auth');
 const Refresh = require('./middlewares/Refresh');
 
-const Static = require('./controllers/Static');
+const View = require('./services/View');
 
 // Authentication
-routes.post('/authorize', Authorize);
-routes.post('/refresh', Refresh, Authorize);
-routes.post('/register', Auth, Register);
+routes.post('/api/authorize', Authorize);
+routes.post('/api/refresh', Refresh, Authorize);
+routes.post('/api/register', Auth, Register);
 
 // Server
-routes.get('/generate', Auth, Generate)
-routes.post('/validade', Auth, Validate);
+routes.get('/api/generate/:subject', Auth, Generate);
+routes.get('/api/validate/:token', Auth, Validate);
 
 // Dashboard
-// routes.get('/', Static('dashboard.html'));
+// routes.get('/', Vire('dashboard.html'));
 
 module.exports = routes;

@@ -10,7 +10,7 @@ app.use(routes);
 
 app.use('/assets', express.static(__dirname + '../web/assets'));
 
-app.all('*', (_, res) => res.redirect('/'));
+// app.all('*', (_, res) => res.redirect('/'));
 
 app.use(function (error, _, response, next) {
     if (error) {
