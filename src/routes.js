@@ -5,6 +5,7 @@ const Authorize = require('./controllers/Authorize');
 const Register = require('./controllers/Register');
 const Generate = require('./controllers/Generate');
 const Validate = require('./controllers/Validate');
+const Subjects = require('./controllers/Subjects');
 
 const Auth = require('./middlewares/Auth');
 const Refresh = require('./middlewares/Refresh');
@@ -19,8 +20,9 @@ routes.post('/api/register', Auth, Register);
 // Server
 routes.get('/api/generate/:subject', Auth, Generate);
 routes.get('/api/validate/:token', Auth, Validate);
+routes.get('/api/subjects', Auth, Subjects);
 
 // Dashboard
-// routes.get('/', Vire('dashboard.html'));
+routes.get('/', View('dashboard'));
 
 module.exports = routes;
