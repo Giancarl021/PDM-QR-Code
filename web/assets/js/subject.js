@@ -1,10 +1,11 @@
-let qrCode, qrCodeEl, lessonId, lessonTitleEl;
+let qrCode, qrCodeEl, subjectId, lessonId, lessonTitleEl;
 
 async function init() {
     qrCodeEl = document.querySelector('#qrCode');
+    studentEl = document.querySelector('#students');
     lessonTitleEl = document.querySelector('#title');
     qrCode = new QRCode(qrCodeEl);
-    lessonId = window.location.href.split('/').pop();
+    subjectId = window.location.href.split('/').pop();
 }
 
 async function generate() {
@@ -16,14 +17,15 @@ async function generate() {
         return;
     }
 
-    const response = await call('api/generate/' + lessonId + '?title=' + encodeURIComponent(title));
-
+    const response = await call('api/generate/' + subjectId + '?title=' + encodeURIComponent(title));
     if (response.error) {
         fireError('Erro ao criar sessão', response.error);
         return;
     }
 
-    const { code, expires } = response;
+    const { code, expires, lesson_id } = response;
+
+    lessonId = lesson_id;
 
     const diff = new Date(expires) - Date.now();
 
@@ -33,6 +35,12 @@ async function generate() {
 
     [ ...qrCodeEl.parentElement.querySelectorAll('button, input') ]
         .forEach(e => e.disabled = true);
+}
+
+async function updateList() {
+    const response = await call('api/attendance/' + lessonId);
+    console.log(response);
+    studentEl.innerHTML = response.map(student => `<li>${student}</li>`);
 }
 
 document.addEventListener('DOMContentLoaded', init);

@@ -83,6 +83,7 @@ module.exports = async function (request, response) {
 
     return response.json({
         code: id,
+        lesson_id: lessonId,
         expires: expires.toISOString()
     });
 }
