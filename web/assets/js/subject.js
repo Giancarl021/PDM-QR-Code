@@ -40,7 +40,7 @@ async function generate() {
 async function updateList() {
     const response = await call('api/attendance/' + lessonId);
     console.log(response);
-    studentEl.innerHTML = response.map(student => `<li>${student}</li>`);
+    studentEl.innerHTML = response.map(student => `<li>${student}</li>`).join('');
 }
 
 document.addEventListener('DOMContentLoaded', init);

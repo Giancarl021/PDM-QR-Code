@@ -26,6 +26,17 @@ module.exports = async function (request, response) {
         });
     }
 
+    const [row] = await connection('attendance')
+        .where('user_id', username)
+        .andWhere('lesson_id', qr[token].lessonId)
+        .select(1);
+
+    if (row) {
+        return response.status(400).json({
+            error: 'Attendance already confirmed'
+        });
+    }
+
     try {
         await connection('attendance')
             .insert({
