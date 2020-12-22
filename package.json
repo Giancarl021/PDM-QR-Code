@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node .",
-    "dev": "nodemon .",
+    "dev": "nodemon --ignore web/ .",
     "knex:build": "knex migrate:latest --knexfile knexfile.js && knex seed:run --knexfile knexfile.js",
     "knex:rollback": "knex migrate:rollback"
   },

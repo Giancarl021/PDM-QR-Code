@@ -41,8 +41,21 @@ module.exports = async function (request, response) {
 
     let lessonId;
 
+    const [ row ] = await connection('user')
+        .join('subject_user', 'subject_user.user_id', 'user.username')
+        .join('subject', 'subject.id', 'subject_user.subject_id')
+        .where('subject_user.user_id', username)
+        .andWhere('subject_user.subject_id', subject)
+        .select(1);
+
+    if(!row) {
+        return response.status(400).json({
+            error: 'Invalid subject'
+        });
+    }
+
     try {
-        [lessonId] = await connection('lesson')
+        [ lessonId ] = await connection('lesson')
             .insert({
                 user_id: username,
                 subject_id: subject,

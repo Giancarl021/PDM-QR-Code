@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="assets/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- LIBS -->
+    <link rel="stylesheet" href="assets/libs/bulma.css">
+    <link rel="stylesheet" href="assets/libs/darkly.css">
+    <script src="assets/libs/sweetalert2.js"></script>
+    <!-- SELF -->
+    <link rel="stylesheet" href="assets/css/login.css" type="text/css">
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/login.js"></script>
+    <title>Authentication</title>
+</head>
+
+<body>
+    <section class="section container box">
+        <div class="field">
+            <label class="label">Usuário</label>
+            <div class="control">
+                <input class="input" type="text" id="username" required>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Senha</label>
+            <div class="control">
+                <input class="input" type="password" id="password" required>
+            </div>
+        </div>
+        <div class="control is-full is-pulled-right">
+            <button class="button is-link" onclick="login()">Entrar</button>
+        </div>
+    </section>
+</body>
+
+</html>

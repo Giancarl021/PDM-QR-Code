@@ -1,10 +1,10 @@
 async function init() {
     const subjects = await call('api/subjects');
-    
+
     document.getElementById('subjects').innerHTML = subjects.map(subject => `
-        <div>
-            ${subject.id}: ${subject.name}
-        </div>
+    <a href="subject/${subject.id}">
+        <button class="button is-fullwidth is-primary">${subject.name}</button>
+    </a>
     `);
 }
 

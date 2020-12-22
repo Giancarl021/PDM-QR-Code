@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/libs/bulma.css">
+    <link rel="stylesheet" href="../assets/libs/darkly.css">
+    <link rel="stylesheet" href="../assets/css/subject.css">
+
+    <script src="../assets/libs/sweetalert2.js"></script>
+    <script src="../assets/libs/qrcode.min.js"></script>
+
+    <script src="../assets/js/api.js"></script>
+    <script src="../assets/js/subject.js"></script>
+</head>
+<body>
+    <section class="section">
+        <h1 class="title" id="subject">Matéria</h1>
+    </section>
+    <section class="section">
+        <div class="field">
+            <label class="label">Título da Aula</label>
+            <div class="control">
+                <input class="input" type="text" id="title" required>
+            </div>
+        </div>
+        <button class="button is-info is-fullwidth" onclick="generate()">Gerar presença</button>
+        <div id="qrCode">
+            <h1 class="title"></h1>
+            <h2 class="subtitle"></h2>
+        </div>
+    </section>
+</body>
+</html>

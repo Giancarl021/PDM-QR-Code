@@ -6,7 +6,7 @@ module.exports = function () {
     global.refreshTokens = {};
     global.auth = {
         expires: Number(process.env.TOKEN_TTL) || 3600,
-        secret: randomBytes(Math.floor((Math.random() * 24) + 16)).toString('hex')
+        secret: process.env.AUTH_SECRET || randomBytes(Math.floor((Math.random() * 24) + 16)).toString('hex')
     };
 
     global.qr = {};
