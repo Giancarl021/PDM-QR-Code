@@ -6,8 +6,8 @@ Trabalho de PDM, controle de presença com QR Code
 Na pasta raíz do projeto, execute os seguintes comandos:
 
 * ``npm install`` para instalar as dependências;
-* ``npm knex:build`` para executar as *migrations* e as *seeds*;
-* ``npm knex:rollback`` para reiniciar o banco de dados;
+* ``npm run knex:build`` para executar as *migrations* e as *seeds*;
+* ``npm run knex:rollback`` para reiniciar o banco de dados;
 * ``npm run dev`` para executar em modo de desenvolvimento;
 * ``npm start`` para executar em modo de produção.
 
